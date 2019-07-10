@@ -64,3 +64,22 @@ git tag -d tag_name
 git push origin —tags/tag_name
 删除远程标签（先删除本地标签）
 git push origin :refs/tags/tag_name
+
+版本管理
+查看文件内容：cat file_name
+版本回退至上一版本/上n版本
+git reset —hard HEAD^(^^^/~n)
+可以查看commit版本号：
+git log
+git reflog
+会退到commit版本号：
+git reset —hard commit_id_short
+将某个文件回退到最近一次commit或add前的状态
+git checkout — file_name
+或将暂存区的文件会退到工作区
+git reset HEAD <file_name>
+删除版本中的文件
+git rm file_name
+git commit
+错误删除工作区的文件，从版本库中恢复
+git checkout — file_name
