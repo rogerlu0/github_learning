@@ -23,8 +23,8 @@ git branch
 git checkout branch_name
 将分支合并到主干上
 git merge branch_name
-删除分支
-git branch -d branch_name
+删除(或强行删除没有merge过的)分支
+git branch -d(-D) branch_name
 查看分支图
 git log --graph --pretty=oneline --abbrev-commit
 隐藏工作区
@@ -41,6 +41,7 @@ git push -u origin master
 
 分支在多人协作冲突
 链接本地dev和远程origin/dev
+//建立本地分支与远程分支的关联
 git branch --set-upstream-to=origin/dev dev
 然后git pull可以将远程dev拉到本地
 
@@ -83,3 +84,13 @@ git rm file_name
 git commit
 错误删除工作区的文件，从版本库中恢复
 git checkout — file_name
+
+分支管理
+创建分支
+git branch branch_name
+删除分支
+git branch -d branch_name
+切换branch
+git checkout branch_name
+在当前分支中合并branch_name的提交
+git merge branch_name
