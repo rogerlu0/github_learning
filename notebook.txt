@@ -1,0 +1,66 @@
+Git Usage
+
+添加待传文件
+git add files.c
+提交文件
+git commit -m “some information”
+查看git log详细
+git log / git reflog
+添加远程库为origin
+git remote add origin https://github.com/rogerlu0/github_learning
+上传远程库
+git pull --rebase origin master
+
+
+分支使用
+创建（并切换到）分支
+git checkout （-b） branch_name
+在远端协作使用dev分支操作时
+git checkout -b dev origin/dev
+查看当前分支
+git branch
+切换分支
+git checkout branch_name
+将分支合并到主干上
+git merge branch_name
+删除分支
+git branch -d branch_name
+查看分支图
+git log --graph --pretty=oneline --abbrev-commit
+隐藏工作区
+git stash
+查看创建的stash列表
+git stash list
+恢复工作区
+git stash apply
+恢复并删除stash
+git stash pop
+
+上传分支master到远程origin
+git push -u origin master
+
+分支在多人协作冲突
+链接本地dev和远程origin/dev
+git branch --set-upstream-to=origin/dev dev
+然后git pull可以将远程dev拉到本地
+
+因此，多人协作的工作模式通常是这样：
+1. 首先，可以试图用git push origin <branch-name>推送自己的修改；
+2. 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+3. 如果合并有冲突，则解决冲突，并在本地提交；
+4. 没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+
+为当前分支打标签
+git tag <tag_name>
+查看所有标签
+git tag
+为之前提交过的commit添加tag标签
+git tag <tag_name> commit_id
+创建带有说明的标签
+git tag -a v0.1 -m "version 0.1 released" 1094adb
+删除标签
+git tag -d tag_name
+推送标签
+git push origin —tags/tag_name
+删除远程标签（先删除本地标签）
+git push origin :refs/tags/tag_name
